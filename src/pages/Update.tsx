@@ -163,7 +163,12 @@ export default function UpdateProfile() {
                 <FormItem>
                   <FormLabel>Email</FormLabel>
                   <FormControl>
-                    <Input {...field} placeholder="Email" type="email" />
+                    <Input
+                      {...field}
+                      placeholder="Email"
+                      type="email"
+                      disabled
+                    />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -176,7 +181,12 @@ export default function UpdateProfile() {
                 <FormItem>
                   <FormLabel>Mobile Number</FormLabel>
                   <FormControl>
-                    <Input {...field} placeholder="Mobile Number" type="tel" />
+                    <Input
+                      {...field}
+                      placeholder="Mobile Number"
+                      type="tel"
+                      disabled
+                    />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
