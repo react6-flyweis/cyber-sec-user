@@ -6,6 +6,7 @@ export interface IUserProfile {
   createdAt: string;
   email: string;
   isOnline: boolean;
+  deviceName: string;
   isVerified: boolean;
   name: string;
   otp: string;

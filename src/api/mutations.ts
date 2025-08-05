@@ -72,6 +72,7 @@ export function useUpdateUserMutation() {
       email: string;
       address: string;
       mobileNumber: string;
+      deviceName: string;
       language: string;
       ipAddress: string;
       osVersion: string;

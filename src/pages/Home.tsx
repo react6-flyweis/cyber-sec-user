@@ -48,6 +48,9 @@ export default function HomePage() {
             <strong>Address:</strong> {user?.address}
           </div>
           <div>
+            <strong>Device:</strong> {user?.deviceName}
+          </div>
+          <div>
             <strong>Compliance Status:</strong> {user?.complianceStatus}
           </div>
           <div>

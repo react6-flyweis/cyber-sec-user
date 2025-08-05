@@ -29,6 +29,7 @@ const updateSchema = z.object({
   name: z.string().min(2, "Name is required"),
   email: z.email("Invalid email"),
   mobileNumber: z.string().min(10, "Mobile number required"),
+  deviceName: z.string().min(2, "Device name is required"),
   // address: z.string(),
   // language: z.string(),
   // ipAddress: z.string(),
@@ -49,6 +50,7 @@ export default function UpdateProfile() {
       name: profile?.name || "",
       email: profile?.email || "",
       mobileNumber: profile?.mobileNumber || "",
+      deviceName: profile?.deviceName || "",
       // address: profile?.address || "",
       // language: profile?.language || "",
       // ipAddress: profile?.ipAddress || "",
@@ -66,6 +68,7 @@ export default function UpdateProfile() {
         name: profile.name || "",
         email: profile.email || "",
         mobileNumber: profile.mobileNumber || "",
+        deviceName: profile.deviceName || "",
         // address: profile.address || "",
         // language: profile.language || "",
         // ipAddress: profile.ipAddress || "",
@@ -187,6 +190,19 @@ export default function UpdateProfile() {
                       type="tel"
                       disabled
                     />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            <FormField
+              control={form.control}
+              name="deviceName"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Device Name</FormLabel>
+                  <FormControl>
+                    <Input {...field} placeholder="Device Name" />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
