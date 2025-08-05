@@ -38,7 +38,6 @@ export function useLoginMutation() {
       // for demo
       try {
         const response = await axiosClient.post("/user/login", data);
-        console.log("Login successful", response.data);
         login(response.data.data.token, response.data.data.UpdatedCategory);
         return response;
       } catch (error: unknown) {
@@ -52,18 +51,6 @@ export function useLoginMutation() {
 }
 
 // /user/detail put
-// {
-//     "name": "John Doe",
-//     "email": "john.doe@example.com",
-//     "address": "123 Main St, Anytown, USA",
-//     "mobileNumber": "+1234567890",
-//     "language": "English",
-//     "ipAddress": "192.168.1.100",
-//     "osVersion": "Windows 10.0.19043",
-//     "riskLevel": "Medium",
-//     "threatsDetected": "PhishingAttempt",
-//     "complianceStatus": "Partial"
-// }
 export function useUpdateUserMutation() {
   return useMutation({
     mutationKey: ["updateUser"],
@@ -74,13 +61,17 @@ export function useUpdateUserMutation() {
       mobileNumber: string;
       deviceName: string;
       language: string;
-      ipAddress: string;
       osVersion: string;
       riskLevel: string;
       threatsDetected: string;
       complianceStatus: string;
     }) => {
-      const response = await axiosClient.put("/user/detail", data);
+      const res = await axios.get("https://api.ipify.org/?format=json");
+      const ipAddress = res.data.ip;
+      const response = await axiosClient.put("/user/detail", {
+        ...data,
+        ipAddress,
+      });
       return response.data;
     },
   });

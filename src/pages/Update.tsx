@@ -88,7 +88,6 @@ export default function UpdateProfile() {
       await mutateAsync({
         ...values,
         osVersion,
-        ipAddress: "192.168.0.1",
         address: profile?.address || "",
         language: profile?.language || "",
       });
